@@ -34,6 +34,8 @@
         getWeatherByGeo,
       } from "./get-weather.js";
 
+      let apiKey = `INSERT API KEY HERE`;
+
       // Get Element refererences
       const tempEl = document.getElementById("temp");
       const descEl = document.getElementById("desc");
@@ -43,12 +45,10 @@
       formEl.addEventListener("submit", (e) => {
         e.preventDefault();
         const zip = zipInput.value;
-        getWeatherByZip("467355df4c808dd6134a3b64e9ace282", zip).then(
-          (data) => {
-            tempEl.innerHTML = data.main.temp;
-            descEl.innerHTML = data.weather[0].description;
-          }
-        );
+        getWeatherByZip(apiKey, zip).then((data) => {
+          tempEl.innerHTML = data.main.temp;
+          descEl.innerHTML = data.weather[0].description;
+        });
       });
     </script>
   </body>
