@@ -12,6 +12,12 @@ export async function getWeatherByCity(apikey, city, unit = "imperial") {
   return await res.json();
 }
 
+export async function weatherForId(apikey, id, unit = "imperial") {
+  const path = `${BASE_URL}id=${id}&appid=${apikey}&units=${unit}`;
+  const res = await fetch(path);
+  return await res.json();
+}
+
 export async function getWeatherByGeo(apikey, coords, unit = "imperial") {
   const path = `${BASE_URL}lat=${coords.lat}&lon=${coords.lon}&appid=${apikey}&units=${unit}`;
   const res = await fetch(path);
